@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="generate()">Сгенерировать</button><br>
+    список чисел:<div id="result-array"></div><br>
+    минимальное:<div id="min"></div><br>
+    максимальное:<div id="max"></div><br>
+    среднее арифметическое:<div id="average"></div><br>
+    сумма чисел:<div id="sum"></div><br>
+    произведение чисел:<div id="prod"></div>
+
+    <script>
+                function generate() {
+                    
+                    let numbers = [];
+
+                    for (let i = 0; i <= 9; i++) { 
+                        numbers.push(Math.floor(Math.random() * (10 + 10 + 1) ) - 10);
+                    }  
+
+                    document.getElementById("result-array").innerHTML = numbers;
+                    document.getElementById("min").innerHTML = Math.min.apply(null, numbers);
+                    document.getElementById("max").innerHTML = Math.max.apply(null, numbers);
+                    
+                    let averArray = 0;
+                    for (let i = 0; i <= 9; i++) {
+                        averArray = averArray + numbers[i];
+                    }
+                    averArray = averArray / numbers.length;
+                    document.getElementById("average").innerHTML = averArray;
+
+                    let sumArray = 0;
+                    for (let number of numbers) {
+                    sumArray = sumArray + number;
+                    }
+                    document.getElementById("sum").innerHTML = sumArray;
+
+                    let multArray = 1;
+                    for (let number of numbers) {
+                        multArray = multArray * number;
+                    }
+                    document.getElementById("prod").innerHTML = multArray;
+}     
+ 
+    </script>
+</body>
+</html>
